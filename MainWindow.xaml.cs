@@ -18,11 +18,30 @@ namespace DesingPaterns
     /// <summary>
     /// Interakční logika pro MainWindow.xaml
     /// </summary>
+    class Person
+    {
+        //Validators
+        //
+        //
+        //
+        public DateTime DayOfBirth { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public int BCN { get; set; }
+
+        // Kod pro použití validátorů
+    }
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+
+        private void btnValidate_Click(object sender, RoutedEventArgs e)
+        {
+            // Metoda pro spuštění validace + vypsání do Log text blocku
         }
     }
 }
