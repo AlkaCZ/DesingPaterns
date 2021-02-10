@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DesingPaterns.Validators;
+using DesingPaterns.Interfaces;
 
 namespace DesingPaterns
 {
@@ -21,15 +23,31 @@ namespace DesingPaterns
     class Person
     {
         //Validators
-        //
-        //
-        //
+        readonly IStringValidator stringValidator;
+        readonly IDateValidator dateValidator;
+        readonly IBCNValidator bcnValidator;
+
         public string DayOfBirth { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public int BCN { get; set; }
+        public string BCN { get; set; }
 
         // Kod pro použití validátorů
+
+        public Person(IStringValidator sv, IStringValidator ssv, IDateValidator dv, IBCNValidator bv)
+        {
+            stringValidator = sv;
+            stringValidator = ssv;
+            dateValidator = dv;
+            bcnValidator = bv;
+        }
+
+        public Person()
+        {
+            stringValidator = null;
+            dateValidator = null;
+            bcnValidator = null;
+        }
     }
     public partial class MainWindow : Window
     {
@@ -42,6 +60,10 @@ namespace DesingPaterns
         private void btnValidate_Click(object sender, RoutedEventArgs e)
         {
             // Metoda pro spuštění validace + vypsání do Log text blocku
+
+          
+
+
         }
     }
 }
