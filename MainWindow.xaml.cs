@@ -24,7 +24,7 @@ namespace DesingPaterns
         //
         //
         //
-        public DateTime DayOfBirth { get; set; }
+        public string DayOfBirth { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public int BCN { get; set; }
