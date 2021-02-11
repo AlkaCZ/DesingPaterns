@@ -47,6 +47,72 @@ namespace DesingPaterns
             stringValidator = null;
             dateValidator = null;
             bcnValidator = null;
+             
+        }
+
+        public void LogOut(TextBox name,TextBox surname,TextBox dayOfBirth, TextBox bcn, Person person, TextBlock LOG)
+            {
+            bool OkName = true;
+            bool OkSurame = true;
+            bool OkDate = true;
+            bool OkBcn = true;
+
+            if (name.Text != null | name.Text == "YourName")
+            {
+                person.Name = name.Text;
+            }
+            else
+            {
+                MessageBox.Show("Name format is wrong", "Format Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (surname.Text != null | surname.Text == "YourSurname")
+            {
+                person.Surname = surname.Text;
+            }
+            else
+            {
+                MessageBox.Show("Surname format is wrong", "Format Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (dayOfBirth.Text != null | dayOfBirth.Text == "day.month.year")
+            {
+                person.DayOfBirth = dayOfBirth.Text;
+            }
+            else
+            {
+                MessageBox.Show("Day of birth format is wrong", "Format Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (bcn.Text != null | bcn.Text == "xxxxxx/xxx")
+            {
+                person.BCN = bcn.Text;
+            }
+            else
+            {
+                MessageBox.Show("BCN format is wrong", "Format Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (OkName = stringValidator.IsValid(person.Name))
+            {
+                LOG.Text += person.Name;
+                LOG.Text += " ";
+            }
+            if (OkSurame = stringValidator.IsValid(person.Surname))
+            {
+                LOG.Text += person.Surname;
+                LOG.Text += " ";
+            }
+            if (OkDate = dateValidator.IsValid(person.DayOfBirth))
+            {
+                LOG.Text += person.DayOfBirth;
+                LOG.Text += " ";
+            }
+            if (OkBcn = bcnValidator.IsValid(person.BCN, person.DayOfBirth))
+            {
+                LOG.Text += person.BCN;
+                LOG.Text += "-----------------------------------------------------------";
+            }
         }
     }
     public partial class MainWindow : Window
@@ -61,7 +127,14 @@ namespace DesingPaterns
         {
             // Metoda pro spuštění validace + vypsání do Log text blocku
 
-          
+            Person p = new Person(new NameValidator(), new SurnameValidator(), new DateValidator(), new BcnValidator());
+            p.LogOut(tbName, tbSurname, tbBirthDay, tbBCN, p, LOG);
+
+         
+
+
+
+
 
 
         }

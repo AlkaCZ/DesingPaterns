@@ -7,7 +7,7 @@ using DesingPaterns.Interfaces;
 
 namespace DesingPaterns.Validators
 {
-    class BcnValidator : IBCNValidator
+ public   class BcnValidator : IBCNValidator
     {
         public bool IsValid(string s, string date)
         {

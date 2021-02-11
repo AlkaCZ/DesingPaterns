@@ -7,7 +7,7 @@ using DesingPaterns.Interfaces;
 
 namespace DesingPaterns.Validators
 {
-    class DateValidator : IDateValidator
+  public  class DateValidator : IDateValidator
     {
         public bool IsValid(string date)
         {

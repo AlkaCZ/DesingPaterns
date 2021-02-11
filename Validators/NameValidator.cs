@@ -7,11 +7,11 @@ using DesingPaterns.Interfaces;
 
 namespace DesingPaterns.Validators
 {
-    class NameValidator : IStringValidator
+   public class NameValidator : IStringValidator
     {
         public bool IsValid(string s)
         {
-            return s.Length > 1;
+            return s.Length > 3;
         }
 
     }

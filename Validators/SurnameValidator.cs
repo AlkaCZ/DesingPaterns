@@ -7,7 +7,7 @@ using DesingPaterns.Interfaces;
 
 namespace DesingPaterns.Validators
 {
-    class SurnameValidator : IStringValidator
+ public class SurnameValidator : IStringValidator
     {
         public bool IsValid(string s)
         {
